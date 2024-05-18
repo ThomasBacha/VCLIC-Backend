@@ -10,17 +10,17 @@ namespace VCLICApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class BetaBlockerController : ControllerBase
+    public class MedicationController : ControllerBase
     {
         [HttpPost("upload")]
-        public IActionResult UploadBetaBlockerValues(IFormFile file)
+        public IActionResult UploadMedications(IFormFile file)
         {
             if (file == null || file.Length == 0)
             {
                 return BadRequest("Please upload a valid CSV file.");
             }
 
-            var betaBlockerValueSets = new List<BetaBlockerValueSet>();
+            var medications = new List<Medication>();
 
             using (var reader = new StreamReader(file.OpenReadStream()))
             using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
@@ -28,10 +28,11 @@ namespace VCLICApi.Controllers
                 HasHeaderRecord = true,
             }))
             {
-                betaBlockerValueSets = csv.GetRecords<BetaBlockerValueSet>().ToList();
+                medications = csv.GetRecords<Medication>().ToList();
             }
 
-            return Ok(betaBlockerValueSets);
+            // Here you could add code to save these records to a database
+            return Ok(medications);
         }
     }
 }

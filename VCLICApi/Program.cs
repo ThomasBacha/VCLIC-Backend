@@ -1,12 +1,21 @@
 using VCLICApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting; // If needed for app.Environment
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Retrieve the connection string early to validate it before usage
+var connectionString = builder.Configuration.GetConnectionString("myDbConnection");
+if (string.IsNullOrEmpty(connectionString))
+{
+    throw new InvalidOperationException("The connection string 'myDbConnection' was not found.");
+}
 
-// Configure CORS to allow any origin, method, and header
+// Add services to the container.
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -17,17 +26,17 @@ builder.Services.AddCors(options =>
 
 // Configure DbContext to use MySQL with Entity Framework Core
 builder.Services.AddDbContext<MyDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("myDbConnection"),
-    new MySqlServerVersion(new Version(8, 0, 21))));  // Adjust the MySQL server version as necessary
-    if (builder.Configuration.GetConnectionString("myDbConnection") == null)
-    {
-    throw new InvalidOperationException("The connection string 'MyAppConnection' was not found.");
-}
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 21))));  // Adjust the MySQL server version as necessary
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.Configure<FormOptions>(x =>
+{
+    x.ValueLengthLimit = int.MaxValue;
+    x.MultipartBodyLengthLimit = int.MaxValue; // In case of large files
+    x.MemoryBufferThreshold = int.MaxValue;
+});
 
 var app = builder.Build();
 
@@ -39,12 +48,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// Use CORS policy before UseRouting or UseAuthorization
-app.UseCors("AllowAll");
-
+app.UseCors("AllowAll");  // Ensure CORS policy is applied before other middleware that might use CORS
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
