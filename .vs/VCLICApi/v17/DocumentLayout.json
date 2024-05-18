@@ -1,0 +1,106 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Thomas\\dev\\VCLICApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|c:\\users\\thomas\\dev\\vclicapi\\vclicapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|solutionrelative:vclicapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|c:\\users\\thomas\\dev\\vclicapi\\vclicapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|solutionrelative:vclicapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|c:\\users\\thomas\\dev\\vclicapi\\vclicapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|solutionrelative:vclicapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|c:\\users\\thomas\\dev\\vclicapi\\vclicapi\\controllers\\valuesetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|solutionrelative:vclicapi\\controllers\\valuesetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|c:\\users\\thomas\\dev\\vclicapi\\vclicapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED2D4D30-9A5B-4895-B68E-2B6C6B2C201F}|VCLICApi\\VCLICApi.csproj|solutionrelative:vclicapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ValueSetController.cs",
+              "DocumentMoniker": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\Controllers\\ValueSetController.cs",
+              "RelativeDocumentMoniker": "VCLICApi\\Controllers\\ValueSetController.cs",
+              "ToolTip": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\Controllers\\ValueSetController.cs",
+              "RelativeToolTip": "VCLICApi\\Controllers\\ValueSetController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T19:10:06.939Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "VCLICApi\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\Properties\\launchSettings.json",
+              "RelativeToolTip": "VCLICApi\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAMAAAAAAAAAAADwvxQAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-18T20:30:01.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\appsettings.json",
+              "RelativeDocumentMoniker": "VCLICApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\appsettings.json",
+              "RelativeToolTip": "VCLICApi\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-18T19:09:28.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "VCLICApi\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "VCLICApi\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T20:29:53.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\Program.cs",
+              "RelativeDocumentMoniker": "VCLICApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Thomas\\dev\\VCLICApi\\VCLICApi\\Program.cs",
+              "RelativeToolTip": "VCLICApi\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T19:09:29.736Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
