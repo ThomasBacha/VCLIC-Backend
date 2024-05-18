@@ -1,3 +1,7 @@
+using VCLICApi.Data;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -10,6 +14,15 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod()
               .AllowAnyHeader());
 });
+
+// Configure DbContext to use MySQL with Entity Framework Core
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("myDbConnection"),
+    new MySqlServerVersion(new Version(8, 0, 21))));  // Adjust the MySQL server version as necessary
+    if (builder.Configuration.GetConnectionString("myDbConnection") == null)
+    {
+    throw new InvalidOperationException("The connection string 'MyAppConnection' was not found.");
+}
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -28,7 +41,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Use CORS policy before UseRouting or UseAuthorization
-app.UseCors("AllowAll"); // Ensure this is placed before UseRouting/UseAuthorization
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 
