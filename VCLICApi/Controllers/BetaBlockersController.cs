@@ -1,35 +1,50 @@
 using CsvHelper;
 using CsvHelper.Configuration;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-
+using VCLICApi.Model;
+using VCLICApi.Data.Mappings;
+using VCLICApi.Data;
 namespace VCLICApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class BetaBlockerController : ControllerBase
     {
-        [HttpPost("upload")]
-        public IActionResult UploadBetaBlockerValues(IFormFile file)
+        private readonly MyDbContext _context;
+
+        public BetaBlockerController(MyDbContext context)
         {
-            if (file == null || file.Length == 0)
+            _context = context;
+        }
+        [HttpGet("read")]
+        public async Task<IActionResult> ReadBetaBlockerValues() // Change the return type to Task<IActionResult>
+
+        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "requirements", "beta_blocker_value_sets.csv");  // Assuming the file is in the 'requirements' directory under the root of the project
+
+            if (!System.IO.File.Exists(filePath))
             {
-                return BadRequest("Please upload a valid CSV file.");
+                return NotFound($"The file was not found: {filePath}");
             }
 
             var betaBlockerValueSets = new List<BetaBlockerValueSet>();
 
-            using (var reader = new StreamReader(file.OpenReadStream()))
+            using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 HasHeaderRecord = true,
             }))
             {
+                csv.Context.RegisterClassMap<BetaBlockerValueSetMap>();
                 betaBlockerValueSets = csv.GetRecords<BetaBlockerValueSet>().ToList();
             }
+
+            // Save to database
+            _context.BetaBlockerValueSets.AddRange(betaBlockerValueSets);
+            await _context.SaveChangesAsync();
 
             return Ok(betaBlockerValueSets);
         }

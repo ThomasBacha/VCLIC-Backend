@@ -1,6 +1,9 @@
-public class BetaBlockerValueSet
+namespace VCLICApi.Model
 {
-    public int ValueSetId { get; set; }
-    public string ValueSetName { get; set; }
-    public string Medications { get; set; } // Assuming this remains a string of concatenated IDs for simplicity
+    public class BetaBlockerValueSet
+    {
+        public string ValueSetId { get; set; }  // Changed to long
+        public string ValueSetName { get; set; }
+        public string Medications { get; set; }
+    }
 }

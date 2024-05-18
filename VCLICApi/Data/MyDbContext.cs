@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using VCLICApi.Model;
 
 namespace VCLICApi.Data
 {
@@ -9,9 +10,19 @@ namespace VCLICApi.Data
         {
         }
 
-        public DbSet<ValueSet> ValueSets { get; set; }  // This DbSet represents the ValueSets table in the database.
+        public DbSet<ValueSet> ValueSets { get; set; }
+        public DbSet<BetaBlockerValueSet> BetaBlockerValueSets { get; set; }
+        public DbSet<Medication> Medications { get; set; }
 
-        // If you have more entities, define them here like:
-        // public DbSet<AnotherEntity> AnotherEntities { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<BetaBlockerValueSet>()
+                .HasKey(b => b.ValueSetId);
+
+            modelBuilder.Entity<Medication>()
+                .HasKey(m => m.MedicationId);
+        }
     }
 }
