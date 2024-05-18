@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ek1vgCK66uE=",
+  "dgSpecHash": "qVs8z1k2Zgg=",
   "success": true,
   "projectFilePath": "/Users/thomas/Developer/VCLIC/VCLIC/VCLICApi/VCLICApi.csproj",
   "expectedPackageFiles": [
+    "/Users/thomas/.nuget/packages/csvhelper/32.0.3/csvhelper.32.0.3.nupkg.sha512",
     "/Users/thomas/.nuget/packages/microsoft.entityframeworkcore/6.0.10/microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "/Users/thomas/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.10/microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
     "/Users/thomas/.nuget/packages/microsoft.entityframeworkcore.analyzers/6.0.10/microsoft.entityframeworkcore.analyzers.6.0.10.nupkg.sha512",

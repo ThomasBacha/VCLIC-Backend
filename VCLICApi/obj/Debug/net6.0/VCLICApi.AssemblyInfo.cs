@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VCLICApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17c3e2a9331eda62ed6bab56b410597936475d19")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ee5900ab7302092646699f7fafcd0329093e0fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("VCLICApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VCLICApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
