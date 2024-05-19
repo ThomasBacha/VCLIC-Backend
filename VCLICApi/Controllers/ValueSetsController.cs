@@ -184,4 +184,23 @@ public class ValueSetsController : ControllerBase
 
         return Ok(new { message = "Value set deleted successfully." });
     }
+
+    [HttpGet("full-join")]
+    public async Task<IActionResult> GetFullJoin()
+    {
+        var valueSets = await _context.BetaBlockerValueSets.ToListAsync();
+        var medications = await _context.Medications.ToListAsync();
+
+        var result = valueSets.SelectMany(vs =>
+            vs.Medications.Split('|').Select(medId => new
+            {
+                ValueSetId = vs.ValueSetId,
+                ValueSetName = vs.ValueSetName,
+                MedicationId = medId,
+                Medication = medications.FirstOrDefault(m => m.MedicationId.ToString() == medId)
+            })).ToList();
+
+        return Ok(result);
+    }
+
 }
