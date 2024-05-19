@@ -10,19 +10,15 @@ namespace VCLICApi.Data
         {
         }
 
-        public DbSet<ValueSet> ValueSets { get; set; }
-        public DbSet<BetaBlockerValueSet> BetaBlockerValueSets { get; set; }
-        public DbSet<Medication> Medications { get; set; }
+        public DbSet<BetaBlockerValueSet> BetaBlockerValueSets { get; set; } = null!;
+        public DbSet<Medication> Medications { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<BetaBlockerValueSet>()
-                .HasKey(b => b.ValueSetId);
+                .HasKey(b => b.ValueSetId); // Define ValueSetId as the primary key
 
-            modelBuilder.Entity<Medication>()
-                .HasKey(m => m.MedicationId);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

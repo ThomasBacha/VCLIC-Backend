@@ -5,6 +5,7 @@ using System.Globalization;
 using VCLICApi.Model;
 using VCLICApi.Data.Mappings;
 using VCLICApi.Data;
+
 namespace VCLICApi.Controllers
 {
     [ApiController]
@@ -17,20 +18,18 @@ namespace VCLICApi.Controllers
         {
             _context = context;
         }
-        [HttpGet("read")]  // Changed to a GET method as it now reads from a fixed source
-        public async Task<IActionResult> ReadMedications() // Change the return type to Task<IActionResult>
 
+        [HttpPost("upload-medications")]
+        public async Task<IActionResult> ReadMedications(IFormFile file)
         {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "requirements", "medications.csv");  // Assuming the file is in the 'requirements' directory under the root of the project
-
-            if (!System.IO.File.Exists(filePath))
+            if (file == null || file.Length == 0)
             {
-                return NotFound($"The file was not found: {filePath}");
+                return BadRequest("No file uploaded.");
             }
 
             var medications = new List<Medication>();
 
-            using (var reader = new StreamReader(filePath))
+            using (var reader = new StreamReader(file.OpenReadStream()))
             using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 HasHeaderRecord = true,
@@ -39,6 +38,7 @@ namespace VCLICApi.Controllers
                 csv.Context.RegisterClassMap<MedicationMap>();
                 medications = csv.GetRecords<Medication>().ToList();
             }
+
             // Save to database
             _context.Medications.AddRange(medications);
             await _context.SaveChangesAsync();

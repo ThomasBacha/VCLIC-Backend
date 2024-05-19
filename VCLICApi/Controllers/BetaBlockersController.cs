@@ -19,20 +19,17 @@ namespace VCLICApi.Controllers
         {
             _context = context;
         }
-        [HttpGet("read")]
-        public async Task<IActionResult> ReadBetaBlockerValues() // Change the return type to Task<IActionResult>
-
+        [HttpPost("upload-beta-blocker-values")]
+        public async Task<IActionResult> ReadBetaBlockerValues(IFormFile file) // Change the return type to Task<IActionResult>
         {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "requirements", "beta_blocker_value_sets.csv");  // Assuming the file is in the 'requirements' directory under the root of the project
-
-            if (!System.IO.File.Exists(filePath))
+            if (file == null || file.Length == 0)
             {
-                return NotFound($"The file was not found: {filePath}");
+                return BadRequest("No file uploaded.");
             }
 
             var betaBlockerValueSets = new List<BetaBlockerValueSet>();
 
-            using (var reader = new StreamReader(filePath))
+            using (var reader = new StreamReader(file.OpenReadStream()))
             using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
             {
                 HasHeaderRecord = true,
@@ -48,5 +45,8 @@ namespace VCLICApi.Controllers
 
             return Ok(betaBlockerValueSets);
         }
+
     }
+
+
 }
