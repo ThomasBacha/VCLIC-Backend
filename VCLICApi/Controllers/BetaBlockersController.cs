@@ -20,7 +20,7 @@ namespace VCLICApi.Controllers
             _context = context;
         }
         [HttpPost("upload-beta-blocker-values")]
-        public async Task<IActionResult> ReadBetaBlockerValues(IFormFile file) // Change the return type to Task<IActionResult>
+        public async Task<IActionResult> ReadBetaBlockerValues(IFormFile file) 
         {
             if (file == null || file.Length == 0)
             {
